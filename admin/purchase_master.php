@@ -41,8 +41,8 @@ include "../user/connect.php";
                             </div>
                                 <div class="control-group">
                                     <label class="control-label">Select Product Name:</label>
-                                    <div class="controls" id="product_name_div">
-                                        <select class="span11" onchange="select_product(this.value)">
+                                    <div class="controls">
+                                        <select class="span11" name="product_name" id="product_name_div" onchange="select_product(this.value)">
                                             <option>Select</option>
                                             
                                         </select>
@@ -50,8 +50,8 @@ include "../user/connect.php";
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label">Select Unit:</label>
-                                    <div class="controls" id="unit_div">
-                                        <select class="span11">
+                                    <div class="controls">
+                                        <select class="span11" name="unit" id="unit_div"  onchange="select_unit(this.value)">
                                             <option>Select</option>
                                         </select>
                                     </div>
@@ -156,10 +156,26 @@ include "../user/connect.php";
      };
      xmlhttp.open("GET","forajax/load_unit_using_products.php?product_name="+product_name+"&company_name="+company_name,true);
      xmlhttp.send();
-     alert(product_name+"=="+company_name);
+    //  alert(product_name+"=="+company_name);
      
     }
-    
+
+    function select_unit(unit)
+    {
+        var company_name=document.getElementById("company_name").value;
+        var product_name=document.getElementById("product_name_div").value;
+        console.log(unit+"=="+company_name+"=="+product_name);
+     var xmlhttp = new XMLHttpRequest();
+     xmlhttp.onreadystatechange = function(){
+        if(xmlhttp.readyState==4 && xmlhttp.status==200){
+            document.getElementById("packing_size_div").innerHTML=xmlhttp.responseText;
+        }
+     };
+     xmlhttp.open("GET","forajax/load_packingsize_using_unit.php?unit="+unit+"&product_name="+product_name+"&company_name="+company_name ,true);
+     xmlhttp.send();
+    //  alert(product_name+"=="+company_name);
+     
+    }
 
 </script>
 

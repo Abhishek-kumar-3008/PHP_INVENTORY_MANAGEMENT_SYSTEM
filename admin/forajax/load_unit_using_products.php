@@ -4,7 +4,7 @@ $company_name=$_GET["company_name"];
 $product_name=$_GET["product_name"];
 $res=mysqli_query($conn,"select * from products where company_name='$company_name' && product_name='$product_name'");
 ?>
-<select class="span11" name="unit" id="unit" onchange="select_product(this.value),<?php echo $company_name; ?>">
+<select class="span11" name="unit" id="unit" onchange="select_product(this.value),<?php echo $company_name; ?>,<?php echo $product_name; ?>">
     <option>
         Select
     </option>

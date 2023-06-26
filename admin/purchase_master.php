@@ -58,7 +58,7 @@ include "../user/connect.php";
                                 </div>
                                         <div class="control-group">
                                             <label class="control-label">Packing Size:</label>
-                                            <div class="controls" id="packing_size_div">
+                                            <div class="controls" id="packing_size_div" name="packing_size">
                                             <select class="span11">
                                               <option>Select</option>
                                             </select>
@@ -83,7 +83,16 @@ include "../user/connect.php";
                                             <label class="control-label">Select Party Name</label>
                                             <div class="controls">
                                             <select class="span11" name="party_name">
-                                              <option>Select</option>
+                                                <option>Select</option>
+                                             <?php
+                                             $res=mysqli_query($conn,"select * from party_info");
+                                             while($row=mysqli_fetch_array($res))
+                                             {
+                                                echo "<option>";
+                                                echo $row["bussinessname"];
+                                                echo "</option>";
+                                             }
+                                             ?>
                                             </select>
                                             </div>
                                         </div>

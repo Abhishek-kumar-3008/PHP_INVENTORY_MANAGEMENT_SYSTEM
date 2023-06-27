@@ -1,6 +1,6 @@
 # PHP_INVENTORY_MANAGEMENT_SYSTEM
 The inventory management system is based on the user and admin
-Always admin give the premission to user to user the web page
+Always admin give the premission to user to use the web page
 Admin give the username and password to the user for using web page
 ## DIFFERENT TYPES OF PAGES
 There are two pages
